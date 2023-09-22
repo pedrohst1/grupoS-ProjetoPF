@@ -1,0 +1,67 @@
+/* E essa é basicamente a interface do jogo o design */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box ;
+    font-family:monospace;
+   }
+/* design do corpo da pagina com a imagem do campo minado importada  */
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(104, 104, 171, 0.673);
+    height: 100vh;
+    background-image: url('Campo-Minado.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+/* defini tamanho cor e estilo p interface do jogo com outra imagem importada  */
+.modos{
+    height: 80vh;
+    width: 80vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    background-color: #f4f4f4;
+    border-radius: 10px;
+    box-shadow: 10px 10px 30px 10px #0000005e;
+    background-image: url('fundo.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* tamanho do botão cor e etc  */
+.botao{
+    height: 30px;
+    width: 100px;
+    font-size: 24px;
+    font-weight: 500;
+    border-radius: 5px;
+    box-shadow: 5px 5px 3px #0000003c;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    color: #000;
+    padding: 10px 10px;
+    margin: 0px 30px 0px 10px;
+    transition: all 0.5s;
+}
+cor do botão 
+.solo{
+    background-color: rgb(245, 46, 46);
+}
+/* da linha 59 até a linha 62 não esta funcionando  */
+.botao:hover{
+    background-color: rgb(132, 21, 21);
+    -moz-transform: scale(1.5);
+    -o-transform: scale(1.5);
+    -webkit-transform: scale(1.5);
+    transform: scale(1.5);
+}
+
+.botao:active{
+    background-color: black;
+}
