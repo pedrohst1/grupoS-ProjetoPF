@@ -37,3 +37,8 @@ if (colisaocombomba.length>0 && vidadojogador>0) { return {...estado,vidajogador
     return estado
 }
 }
+
+//(Theo) Essa função é responsável por verificar se o personagem chegou até a bandeira, caso tenha chegado será exibida a mensagem "Parabéns, você venceu!" ao jogador.
+const checarcolisaocombandeira = (novoX, novoY) => {
+    if (novoX == 700 && novoY == 600) return 'Parabéns, você venceu!'
+}
