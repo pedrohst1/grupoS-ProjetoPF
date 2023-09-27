@@ -1,3 +1,4 @@
+/* (Lauren)fiz uns pequenos ajustes no front para ficar dentro da id visual do jogo */
 * {
   margin: 0;
   padding: 0;
@@ -9,7 +10,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #0aa438;
+  background-color: #397d4e;
   height: 100vh;
 }
 
@@ -26,21 +27,33 @@ body {
 }
 
 .quit {
-  background-color: rgb(245, 79, 46);
+  background-color: rgb(186, 68, 44);
 }
 
 .quit {
-  height: 30px;
+  height: 100x;
   width: 100px;
   font-size: 20px;
   font-weight: 500;
-  border-radius: 5px;
-  box-shadow: 4px 5px 3px #0000003c;
+  border-radius: 7px;
   border: none;
   cursor: pointer;
   text-decoration: none;
   color: #000;
-  padding: 1px 10px;
+  padding: 0, 1px 0, 1px;
   margin: 0px 30px 0px 10px;
-  transition: 0.5s;
+  transition: all 0.5s;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+/*(Lauren)adicionei o hover para o botão "back" também ter seu estilo alterado quando o cursor passar por cima*/
+.quit:hover {
+  box-shadow: 5px 0px 70px 10px #00000082;
+  background-color: #397d4e;
+  color: rgba(0, 0, 0, 0.889);
+  transition: 130ms linear;
+  -moz-transform: scale(1.5);
+  -o-transform: scale(1.5);
+  -webkit-transform: scale(1.5);
+  transform: scale(1.5);
 }

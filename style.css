@@ -6,17 +6,20 @@
   box-sizing: border-box;
   font-family: monospace;
 }
+
 /* design do corpo da pagina com a imagem do campo minado importada  */
 body {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #0aa438;
+  background-color: #397d4e;
   background-repeat: no-repeat;
   background-size: cover;
 }
+
 /* defini tamanho cor e estilo p interface do jogo com outra imagem importada  */
+/*(Lauren) alterei o background-image */
 .modos {
   height: 80vh;
   width: 80vw;
@@ -26,7 +29,7 @@ body {
   flex-direction: row;
   border-radius: 10px;
   box-shadow: 10px 10px 30px 10px #0000005e;
-  background-image: url("capa_bandeira_1.jpeg");
+  background-image: url("MinedFlag.png");
   background-color: #f4f4f4;
   background-position: center;
   background-size: cover;
@@ -34,35 +37,39 @@ body {
 }
 
 /* tamanho do botão cor e etc  */
+/* (Lauren)fiz alguns pequenos ajustes na parte visual( como fonte, tamanho da letra,cor...)*/
 .botao {
-  height: 30px;
+  height: 100px;
   width: 100px;
-  font-size: 24px;
+  font-size: 30px;
   font-weight: 500;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   text-decoration: none;
-  color: #000;
+  color: #000000;
   padding: 10px 10px;
-  margin: 0px 30px 0px 10px;
+  margin: 0px 0px 0px 40px;
   transition: all 0.5s;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
-cor do botão .solo {
-  background-color: rgb(245, 46, 46);
+
+/*.solo {
+  background-color: rgba(38, 105, 61, 0.425);
 }
+
 /* da linha 60 até a linha 63 não esta funcionando  */
 .botao:hover {
-    box-shadow: 0px 0px 70px 10px #000000;
-    background-color: #00000064;
-    color: white;
-    transition: 130ms linear;
-    -moz-transform: scale(1.5);
-    -o-transform: scale(1.5);
-    -webkit-transform: scale(1.5);
-    transform: scale(1.5);
+  box-shadow: 0px 0px 70px 10px #00000082;
+  background-color: #0000004f;
+  color: rgb(141, 30, 30);
+  transition: 130ms linear;
+  -moz-transform: scale(1.5);
+  -o-transform: scale(1.5);
+  -webkit-transform: scale(1.5);
+  transform: scale(1.5);
 }
 
 .botao:active {
-  background-color: black;
+  background-color: rgb(0, 0, 0);
 }
