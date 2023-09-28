@@ -1,44 +1,69 @@
-<script type="module" src="back.js"></script>
+// a função abaixo obtem o personagem e a bandeira a partir do seu id contido no html. 
+const jogador = document.getElementById('personagem');
+const bandeira = document.getElementById('bandeira')
 
-//essa função é a responsável por designar a posição inicial do jogador, da bandeira(cuja posição é fixa) e das bombas utilizando as coordenadas 
-//representadas por x e y. Além disso, é responsavel por definir a quantidade de corações/vidas que o player inicia tendo na partida e o estado inicial da pontuação que aumenta no decorrer do jogo.
-// o tempo também foi definido nessa função, visto que ele é necessário para que aja o desafio na partida. a partida se inicia com 30s que decaem até o jogador pegar a bandeira ou o tempo ser 0s
-const EstadoInicial = {
-    jogador: { x:100, y: 100},
-    bandeira: {x:700, y:600},
-    vidadojogador: 3,
-    pontuacao: 0,
-    tempo: 30,
-    bombas: [
-        {x: 200, y:300},
-        {x: 400, y:200},
-        {x: 600, y: 400}
-    ]
+ /*a função "atualizarposicao" recebe x e y como parametros de coornedas e  utilizando o id fornecido no html do personagem serve
+para atualizar a posição do jogador usando left e top para alterar as coordenadas acrescentando certo valor de px. De maneira semelhante, 
+a função também é reponsável por atualizar a posição da bandeira. Por fim, na linha "bandeira.style.display = 'block';"a função é 
+responsável por tornar a bandeira visível na tela.*/
+const AtualizarPosicao = (x, y) => {
+    jogador.style.left = x + 'px';
+    jogador.style.top = y + 'px';
+    bandeira.style.left = Bandeira.x + 'px';
+    bandeira.style.top = Bandeira.y + 'px'
+    bandeira.style.display = 'block';
 };
 
-// essa função é a responsável por atualizar o "estado" do jogo a cada nova mmudança feita pelo jogador, seja a colisão com uma bomba, o ato de pegar a bandeira ou simplesmente o andar do personagem.
-//a função moverjogador recebe como parametros o "estado", novox e novoy, que são as novas coodernadas que o jogador se encontra ao se mover. feito isso, ela retorna o estado atualizado do jogo.
-// a atualização é feita através do operador spread que cria uma cópia do estado e o jogador atualiza suas coordenadas com o novox e novoy.
-//!!!!!!!!!!!ainda será implementada novas funçoes resposaveis por movimentarem o personagem atraves do teclado a partir dessa!!!!!!!
-
-const moverjogador = (estado, novoX, novoY) => ({...estado,
-jogador: {x: novoX, y: novoY},
-});
-
-// essa função é reponsável por verificar se o personagem colidiu com uma bomba e se colidiu fará com que ele perca uma vida.
-// a função usa a função de alta ordem filter para criar um array chamado colisaocombomba e esse outro array vai ter as bombas que o jogador colidiu.
-// a colisão acontece caso a distancia da bomba e dos jogadores seja menor do que 10pixels
-// se o array colisaocombomb for maior que 0(nao estiver vazio), ela retorna o estado atualizado da vida do jogador retirando uma de suas vidas.
-const checarcolisaocombomba = (estado) => {
-    const {jogador, bombas, vidajogador} = estado;
-const colisaocombomba = bombas.filter((bomba) => Math.abs(jogador.x - bomba.x) <10 && Math.abs(jogador.y - bomba.y) <10);
-if (colisaocombomba.length>0 && vidadojogador>0) { return {...estado,vidajogador: vidadojogador -1}
-} else {
-    return estado
+/* as funções abaixo são resposáveis por determinar a posição inicial da bandeira e do jogador no inicio do jogo a partir das 
+coordenadas apresentadas em x e y */
+const PosicaoJogador = {
+    x: 700,
+    y: 697,
+};
+const Bandeira = {
+    x: 700,
+    y: 40,
 }
-}
+//Essas são responsaveis por atualizar e posicionar jogador e bandeira no inicio do jogo.
+AtualizarPosicao(PosicaoJogador.x, PosicaoJogador.y)
+AtualizarPosicao(Bandeira.x, Bandeira.y)
 
-//(Theo) Essa função é responsável por verificar se o personagem chegou até a bandeira, caso tenha chegado será exibida a mensagem "Parabéns, você venceu!" ao jogador.
-const checarcolisaocombandeira = (novoX, novoY) => {
-    if (novoX == 700 && novoY == 600) return 'Parabéns, você venceu!'
+/* A função abaixo é responsável por permitir a movimentação do jogador a partir do seu ID fornecido no html, utilizando um detector 
+de eventos que identifica a tecla pressionada e retorna uma função de retorno que é acionada permitindo o movimento; a função apertartecla
+reconhece qual tecla foi pressionada durante o evento e armazena. A seguir, o objeto PosicaoJogador é desestruturado para obter a nova
+coordenada do jogador; A função novaPosicao recebe a tecla que foi apertada como um parametro e diz a nova posição do jogador com base na
+tecla pressionada.*/
+document.addEventListener('keydown', (evento) => {
+    const apertarTecla = evento.key;
+    const { x, y } = PosicaoJogador;
+    const novaPosicao = (tecla) => {
+
+/* a seguir, a partir da tecla pressionada, varias condições são verificadas e de acordo como evento, a coordenada do jogador será adicionada
+ou subtraida em 10px. */
+        if (tecla === 'ArrowRight' || tecla === 'd' || tecla == 'D') { 
+            return { x: x+10, y}
+        }
+        else if (tecla === 'ArrowLeft' || tecla === 'a' || tecla === 'A') {
+            return { x: x-10, y}
+        }
+        else if (tecla === 'ArrowUp'|| tecla === 'w' || tecla === 'W') {
+            return {x, y: y-10};
+        } else {
+             return {x,y} 
+        }
+    };
+
+/* a função a seguir é responsável por verificar a conddição da vitória do jogo. Se a distancia entre a coordenada da bandeira e do jogador
+for menos que 10px, um alerta é emitido na tela de vitória. a primeira linha é responsavel por obter as novas coordenadas do jogador, 
+a const distancia é responsavel por calcular a distancia euclidiana entre a bandeira e a bandeira e o jogador e uma condição é feita de
+que caso a distancia seja menor que 10p,  um alerta de vitória será exibido. */
+
+    const { x: novoX, y: novoY } = novaPosicao (apertarTecla);
+    PosicaoJogador.x = novoX
+    PosicaoJogador.y = novoY
+    AtualizarPosicao(novoX, novoY)
+
+    const distancia = Math.sqrt((novoX - Bandeira.x)**2 + (novoY - Bandeira.y)**2);
+    if (distancia<10) { alert ('Você Venceu!');
 }
+})

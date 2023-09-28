@@ -57,3 +57,18 @@ body {
   -webkit-transform: scale(1.5);
   transform: scale(1.5);
 }
+
+#personagem {
+  position:absolute;
+  width: 20px;
+  height: 20px;
+  background-color: red;
+}
+
+#bandeira {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: blue;
+  display: block;
+}
