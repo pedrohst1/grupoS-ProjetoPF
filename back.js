@@ -63,31 +63,37 @@ as bombas estarão em uma posição diferente da que estavam anteriormente*/
 const Bomba1 = {
     x: (Math.random() * 300) + 200,
     y: (Math.random() * 300) + 200,
+    removida: false,
 };
 
 const Bomba2 = {
     x: (Math.random() * 300) + 200,
     y: (Math.random() * 300) + 200,
+    removida: false,
 };
 
 const Bomba3 = {
     x: (Math.random() * 300) + 200,
     y: (Math.random() * 300) + 200,
+    removida: false,
 };
 
 const Bomba4 = {
     x: (Math.random() * 300) + 500,
     y: (Math.random() * 300) + 200,
+    removida: false,
 };
 
 const Bomba5 = {
     x: (Math.random() * 300) + 500,
     y: (Math.random() * 300) + 200,
+    removida: false,
 };
 
 const Bomba6 = {
     x: (Math.random() * 300) + 500,
     y: (Math.random() * 300) + 200,
+    removida: false,
 };
 
 //Essas são responsaveis por atualizar e posicionar jogador e bandeira no inicio do jogo.
@@ -105,6 +111,26 @@ de eventos que identifica a tecla pressionada e retorna uma função de retorno 
 reconhece qual tecla foi pressionada durante o evento e armazena. A seguir, o objeto PosicaoJogador é desestruturado para obter a nova
 coordenada do jogador; A função novaPosicao recebe a tecla que foi apertada como um parametro e diz a nova posição do jogador com base na
 tecla pressionada.*/
+
+const verificarColisaoComBomba = (novoX, novoY, bomba) => {
+    if (bomba.removida) {
+        return false
+    }
+
+    const distanciaBomba = Math.sqrt((novoX - bomba.x) ** 2 + (novoY - bomba.y) ** 2);
+    if (distanciaBomba < 20) {
+        bomba.removida = true;
+        return true;
+    }
+    return false;
+}
+
+const removerBomba = (bomba) => {
+    if (bomba.parentNode) {
+        bomba.parentNode.removeChild(bomba);
+    }
+}
+
 document.addEventListener('keydown', (evento) => {
     const apertarTecla = evento.key;
     const { x, y } = PosicaoJogador;
@@ -136,8 +162,39 @@ document.addEventListener('keydown', (evento) => {
     AtualizarPosicao(novoX, novoY)
 
     const distanciaBandeira = Math.sqrt((novoX - Bandeira.x) ** 2 + (novoY - Bandeira.y) ** 2);
-    if (distanciaBandeira < 10) { alert('Você Venceu!'); 
-}   
+        if (distanciaBandeira < 20) { alert('Você Venceu!');
+    }
+
+    if (verificarColisaoComBomba(novoX, novoY, Bomba1)) {
+        alert("Boom!");
+        removerBomba(bomba1);
+
+    }
+    if (verificarColisaoComBomba(novoX, novoY, Bomba2)) {
+        alert("Boom!");
+        removerBomba(bomba2);
+
+    }
+    if (verificarColisaoComBomba(novoX, novoY, Bomba3)) {
+        alert("Boom!");
+        removerBomba(bomba3);
+
+    }
+    if (verificarColisaoComBomba(novoX, novoY, Bomba4)) {
+        alert("Boom!");
+        removerBomba(bomba4);
+
+    }
+    if (verificarColisaoComBomba(novoX, novoY, Bomba5)) {
+        alert("Boom!");
+        removerBomba(bomba5);
+
+    }
+    if (verificarColisaoComBomba(novoX, novoY, Bomba6)) {
+        alert("Boom!");
+        removerBomba(bomba6);
+
+    }
 })
 
 // (Lauren) Está parte é responsável por colocar o jogador na posição inicial toda vez que a página for atualizada

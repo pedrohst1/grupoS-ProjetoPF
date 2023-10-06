@@ -25,7 +25,7 @@ body {
   flex-direction: row;
   background-color: #ffffff;
   border-radius: 10px;
-  box-shadow: 10px 10px 30px 10px #0000005e;
+  /* box-shadow: 10px 10px 30px 10px #0000005e; */
 }
 
 .quit {
@@ -42,7 +42,7 @@ body {
   padding: 0, 1px 0, 1px;
   margin: 0px 30px 0px 10px;
   transition: all 0.5s;
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
 }
 
 /*(Lauren)adicionei o hover para o botão "back" também ter seu estilo alterado quando o cursor passar por cima*/
@@ -55,7 +55,6 @@ body {
   -o-transform: scale(1.5);
   -webkit-transform: scale(1.5);
   transform: scale(1.5);
-
 }
 
 #personagem {
@@ -63,16 +62,15 @@ body {
   width: 20px;
   height: 40px;
   background-color: red;
-  background-image: url('imagens/personagem.png');
+  background-image: url("imagens/personagem.png");
 }
-
 
 #bandeira {
   position: absolute;
   width: 40px;
   height: 40px;
   background-color: blue;
-  background-image: url('imagens/bandeira-win.png');
+  background-image: url("imagens/bandeira-win.png");
   display: block;
 }
 
@@ -82,7 +80,6 @@ body {
   width: 20px;
   height: 20px;
   background-color: rgb(0, 255, 30);
-
 }
 
 #bomba2 {
@@ -90,7 +87,6 @@ body {
   width: 20px;
   height: 20px;
   background-color: rgb(196, 183, 13);
-
 }
 
 #bomba3 {
@@ -98,7 +94,6 @@ body {
   width: 20px;
   height: 20px;
   background-color: rgb(221, 45, 191);
-
 }
 
 #bomba4 {
@@ -106,7 +101,6 @@ body {
   width: 20px;
   height: 20px;
   background-color: rgb(86, 17, 91);
-
 }
 
 #bomba5 {
@@ -114,7 +108,6 @@ body {
   width: 20px;
   height: 20px;
   background-color: rgb(195, 92, 92);
-
 }
 
 #bomba6 {
