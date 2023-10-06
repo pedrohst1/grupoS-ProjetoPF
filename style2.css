@@ -12,6 +12,8 @@ body {
   align-items: center;
   background-color: #397d4e;
   height: 100vh;
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 .modos {
@@ -27,14 +29,11 @@ body {
 }
 
 .quit {
-  background-color: rgb(186, 68, 44);
-}
-
-.quit {
+  background-color: #912f2f;
   height: 100x;
   width: 100px;
   font-size: 20px;
-  font-weight: 500;
+  font-weight: 400;
   border-radius: 7px;
   border: none;
   cursor: pointer;
@@ -56,19 +55,71 @@ body {
   -o-transform: scale(1.5);
   -webkit-transform: scale(1.5);
   transform: scale(1.5);
+
 }
 
 #personagem {
-  position:absolute;
+  position: absolute;
   width: 20px;
-  height: 20px;
+  height: 40px;
   background-color: red;
+  background-image: url('imagens/personagem.png');
 }
+
 
 #bandeira {
   position: absolute;
+  width: 40px;
+  height: 40px;
+  background-color: blue;
+  background-image: url('imagens/bandeira-win.png');
+  display: block;
+}
+
+/*(Lauren) */
+#bomba1 {
+  position: absolute;
   width: 20px;
   height: 20px;
-  background-color: blue;
-  display: block;
+  background-color: rgb(0, 255, 30);
+
+}
+
+#bomba2 {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: rgb(196, 183, 13);
+
+}
+
+#bomba3 {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: rgb(221, 45, 191);
+
+}
+
+#bomba4 {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: rgb(86, 17, 91);
+
+}
+
+#bomba5 {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: rgb(195, 92, 92);
+
+}
+
+#bomba6 {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: rgb(0, 0, 0);
 }
