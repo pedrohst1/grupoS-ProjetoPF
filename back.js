@@ -46,6 +46,27 @@ const AtualizarPosicao = (x, y) => {
     bomba6.style.display = 'block';
 };
 
+//Função responsável por mostrar na tela o tempo que falta para o encerramento da partida de 10s até 0s.
+function iniciarCronometro() {
+    const tempoTotal = 10; 
+    const inicio = Date.now();
+
+    function atualizarCronometro() {
+        const tempocorrido = (Date.now() - inicio) / 1000;
+    
+        if (tempocorrido >= tempoTotal) {
+            clearInterval(IntervalodoCronometro);
+            alert('Você perdeu!');
+        } else {
+            const tempoRestante = tempoTotal - tempocorrido;
+            cronometro.textContent = tempoRestante.toFixed(1) + 's'; 
+        }
+    }
+    
+    const cronometro = document.getElementById('cronometro');
+    atualizarCronometro();
+    const IntervalodoCronometro = setInterval(atualizarCronometro, 100);
+}
 /* as funções abaixo são resposáveis por determinar a posição inicial da bandeira e do jogador no inicio do jogo a partir das 
 coordenadas apresentadas em x e y */
 const PosicaoJogador = {
@@ -106,12 +127,6 @@ AtualizarPosicao(Bomba4.x, Bomba4.y)
 AtualizarPosicao(Bomba5.x, Bomba5.y)
 AtualizarPosicao(Bomba6.x, Bomba6.y)
 
-/* A função abaixo é responsável por permitir a movimentação do jogador a partir do seu ID fornecido no html, utilizando um detector 
-de eventos que identifica a tecla pressionada e retorna uma função de retorno que é acionada permitindo o movimento; a função apertartecla
-reconhece qual tecla foi pressionada durante o evento e armazena. A seguir, o objeto PosicaoJogador é desestruturado para obter a nova
-coordenada do jogador; A função novaPosicao recebe a tecla que foi apertada como um parametro e diz a nova posição do jogador com base na
-tecla pressionada.*/
-
 const verificarColisaoComBomba = (novoX, novoY, bomba) => {
     if (bomba.removida) {
         return false
@@ -130,7 +145,11 @@ const removerBomba = (bomba) => {
         bomba.parentNode.removeChild(bomba);
     }
 }
-
+/* A função abaixo é responsável por permitir a movimentação do jogador a partir do seu ID fornecido no html, utilizando um detector 
+de eventos que identifica a tecla pressionada e retorna uma função de retorno que é acionada permitindo o movimento; a função apertartecla
+reconhece qual tecla foi pressionada durante o evento e armazena. A seguir, o objeto PosicaoJogador é desestruturado para obter a nova
+coordenada do jogador; A função novaPosicao recebe a tecla que foi apertada como um parametro e diz a nova posição do jogador com base na
+tecla pressionada.*/
 document.addEventListener('keydown', (evento) => {
     const apertarTecla = evento.key;
     const { x, y } = PosicaoJogador;
@@ -152,9 +171,9 @@ document.addEventListener('keydown', (evento) => {
     };
 
     /* a função a seguir é responsável por verificar a conddição da vitória do jogo. Se a distancia entre a coordenada da bandeira e do jogador
-    for menos que 10px, um alerta é emitido na tela de vitória. a primeira linha é responsavel por obter as novas coordenadas do jogador, 
+    for menos que 20px, um alerta é emitido na tela de vitória. a primeira linha é responsavel por obter as novas coordenadas do jogador, 
     a const distancia é responsavel por calcular a distancia euclidiana entre a bandeira e a bandeira e o jogador e uma condição é feita de
-    que caso a distancia seja menor que 10p,  um alerta de vitória será exibido. */
+    que caso a distancia seja menor que 20px,  um alerta de vitória será exibido. */
 
     const { x: novoX, y: novoY } = novaPosicao(apertarTecla);
     PosicaoJogador.x = novoX
@@ -198,7 +217,9 @@ document.addEventListener('keydown', (evento) => {
 })
 
 // (Lauren) Está parte é responsável por colocar o jogador na posição inicial toda vez que a página for atualizada
+//Responsável também por inciar o cronometro assim que a pagina for atualizada.
 window.addEventListener('load', function () {
     jogador.style.left = '700px';
     jogador.style.top = '620px';
+    iniciarCronometro();
 });
