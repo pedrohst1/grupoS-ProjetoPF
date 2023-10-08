@@ -13,10 +13,11 @@ body {
   height: 100vh;
   overflow: hidden;
 }
-
+ 
+/* modifiquei o tamanho  */
 .modos {
   height: 90%;
-  width: 90%;
+  width: 45%;
   display: flex;
   justify-content: baseline;
   align-items: baseline;
@@ -25,34 +26,11 @@ body {
   border-radius: 10px;
 }
 
-.quit {
-  background-color: #912f2f;
-  height: 10%;
-  width: 10%;
-  font-size: 20px;
-  font-weight: 400;
-  border-radius: 7px;
-  border: none;
-  cursor: pointer;
-  text-decoration: none;
-  color: #000;
-  margin: 1%;
-  transition: all 0.5s;
-  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
-}
-
-.quit:hover {
-  box-shadow: 5px 0px 70px 10px #00000082;
-  background-color: #397d4e;
-  color: rgba(0, 0, 0, 0.889);
-  transition: 130ms linear;
-  transform: scale(1.1);
-}
 
 #personagem {
   position: absolute;
-  width: 2%;
-  height: 4%;
+  width: 40px;
+  height: 40px;
   background-color: red;
   background-image: url("imagens/personagem.png");
   left: 10%;
@@ -61,19 +39,19 @@ body {
 
 #bandeira {
   position: absolute;
-  width: 4%;
-  height: 4%;
+  width: 20px;
+  height: 20px;
   background-color: blue;
   background-image: url("imagens/bandeira-win.png");
-  left: 10%;
+  left: 0%;
   top: 5%;
 }
 
 #bomba1 {
   position: absolute;
   width: 2%;
-  height: 2%;
-  background-color: rgb(0, 255, 30);
+  height: 3.5%;
+  /* background-color: rgb(0, 255, 30); */
   left: 25%;
   top: 30%;
 }
@@ -81,8 +59,8 @@ body {
 #bomba2 {
   position: absolute;
   width: 2%;
-  height: 2%;
-  background-color: rgb(196, 183, 13);
+  height: 3.5%;
+  /* background-color: rgb(196, 183, 13); */
   left: 50%;
   top: 40%;
 }
@@ -90,8 +68,8 @@ body {
 #bomba3 {
   position: absolute;
   width: 2%;
-  height: 2%;
-  background-color: rgb(221, 45, 191);
+  height: 3.5%;
+  /* background-color: rgb(221, 45, 191); */
   left: 75%;
   top: 25%;
 }
@@ -99,8 +77,8 @@ body {
 #bomba4 {
   position: absolute;
   width: 2%;
-  height: 2%;
-  background-color: rgb(86, 17, 91);
+  height: 3.5%;
+  /* background-color: rgb(86, 17, 91); */
   left: 15%;
   top: 80%;
 }
@@ -108,8 +86,8 @@ body {
 #bomba5 {
   position: absolute;
   width: 2%;
-  height: 2%;
-  background-color: rgb(195, 92, 92);
+  height: 3.5%;
+  /* background-color: rgb(195, 92, 92); */
   left: 70%;
   top: 70%;
 }
@@ -117,16 +95,70 @@ body {
 #bomba6 {
   position: absolute;
   width: 2%;
-  height: 2%;
-  background-color: rgb(0, 0, 0);
+  height: 3.5%;
+  /* background-color: rgb(0, 0, 0); */
   left: 80%;
   top: 40%;
 }
+/* add o restante das bombas */
+#bomba7 {
+  position: absolute;
+  width: 2%;
+  height: 3.5%;
+  /* background-color: rgb(0, 255, 30); */
+  left: 25%;
+  top: 30%;
+}
 
+#bomba8 {
+  position: absolute;
+  width: 2%;
+  height: 3.5%;
+  /* background-color: rgb(196, 183, 13); */
+  left: 50%;
+  top: 40%;
+}
+
+#bomba9 {
+  position: absolute;
+  width: 2%;
+  height: 3.5%;
+  /* background-color: rgb(221, 45, 191); */
+  left: 75%;
+  top: 25%;
+}
+
+#bomba10 {
+  position: absolute;
+  width: 2%;
+  height: 3.5%;
+  /* background-color: rgb(86, 17, 91); */
+  left: 15%;
+  top: 80%;
+}
+
+#bomba11 {
+  position: absolute;
+  width: 2%;
+  height: 3.5%;
+  /* background-color: rgb(195, 92, 92); */
+  left: 70%;
+  top: 70%;
+}
+
+#bomba12 {
+  position: absolute;
+  width: 2%;
+  height: 3.5%;
+  /* background-color: rgb(0, 0, 0); */
+  left: 80%;
+  top: 40%;
+}
+/* personalizei o cronometro e o botão de reiniciarr */
 #cronometro {
   background-color: #912f2f;
   height: 5%;
-  width: 5%;
+  width: 20%;
   font-size: 30px;
   font-weight: 400;
   border-radius: 7px;
@@ -139,7 +171,37 @@ body {
   transition: all 0.5s;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
+#reiniciarJogo {
+  height: 100px;
+  width: 100;
+  font-size: 30px;
+  font-weight: 500;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  background-color: #ff0000;
+  padding: 10px 10px;
+  margin: 200px 0px 0px 270px;
+  transition: all 0.5s;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+#reiniciarJogo:hover {
+  box-shadow: 0px 0px 70px 10px #00000082;
+  background-color: #000000;
+  color: rgb(141, 42, 42);
+  transition: 130ms linear;
+  
+  transform: scale(1.1);
+}
+
 
 #reiniciarJogo {
   display: block;
 }
+
+#reiniciarjogo:active {
+  background-color: rgb(0, 0, 0);
+}
+

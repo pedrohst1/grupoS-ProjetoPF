@@ -8,6 +8,12 @@ const bomba3 = document.getElementById('bomba3');
 const bomba4 = document.getElementById('bomba4');
 const bomba5 = document.getElementById('bomba5');
 const bomba6 = document.getElementById('bomba6');
+const bomba7 = document.getElementById('bomba7');
+const bomba8 = document.getElementById('bomba8');
+const bomba9 = document.getElementById('bomba9');
+const bomba10 = document.getElementById('bomba10');
+const bomba11 = document.getElementById('bomba11');
+const bomba12 = document.getElementById('bomba12');
 
 /*a função "atualizarposicao" recebe x e y como parametros de coornedas e  utilizando o id fornecido no html do personagem serve
 para atualizar a posição do jogador usando left e top para alterar as coordenadas acrescentando certo valor de px. De maneira semelhante, 
@@ -44,12 +50,36 @@ const AtualizarPosicao = (x, y) => {
     bomba6.style.left = Bomba6.x + 'px';
     bomba6.style.top = Bomba6.y + 'px';
     bomba6.style.display = 'block';
+
+    bomba7.style.left = Bomba7.x + 'px';
+    bomba7.style.top = Bomba7.y + 'px';
+    bomba7.style.display = 'block';
+
+    bomba8.style.left = Bomba8.x + 'px';
+    bomba8.style.top = Bomba8.y + 'px';
+    bomba8.style.display = 'block';
+
+    bomba9.style.left = Bomba9.x + 'px';
+    bomba9.style.top = Bomba9.y + 'px';
+    bomba9.style.display = 'block';
+
+    bomba10.style.left = Bomba10.x + 'px';
+    bomba10.style.top = Bomba10.y + 'px';
+    bomba10.style.display = 'block';
+
+    bomba11.style.left = Bomba11.x + 'px';
+    bomba11.style.top = Bomba11.y + 'px';
+    bomba11.style.display = 'block';
+
+    bomba12.style.left = Bomba12.x + 'px';
+    bomba12.style.top = Bomba12.y + 'px';
+    bomba12.style.display = 'block';
 };
 
 
 //Função responsável por mostrar na tela o tempo que falta para o encerramento da partida de 10s até 0s.
 const iniciarCronometro = () => {
-    const tempoTotal = 10; 
+    const tempoTotal = 60; 
     const inicio = Date.now();
 
     const atualizarCronometro = () => {
@@ -72,50 +102,86 @@ const iniciarCronometro = () => {
 /* as funções abaixo são resposáveis por determinar a posição inicial da bandeira e do jogador no inicio do jogo a partir das 
 coordenadas apresentadas em x e y */
 const PosicaoJogador = {
-    x: 700,
-    y: 630,
+    x: 737,
+    y: 710,
 };
 
 const Bandeira = {
-    x: 700,
+    x: 737,
     y: 40,
 };
 /*(Lauren) As funções abaixo são responsáveis pela aleatoriedade do surgimento das bombas, assim, toda vez que a página for atualizada
 as bombas estarão em uma posição diferente da que estavam anteriormente*/
 
 const Bomba1 = {
-    x: (Math.random() * 300) + 200,
+    x: (Math.random() * 300) + 530,
     y: (Math.random() * 300) + 200,
     removida: false,
 };
 
 const Bomba2 = {
-    x: (Math.random() * 300) + 200,
+    x: (Math.random() * 300) + 650,
     y: (Math.random() * 300) + 200,
     removida: false,
 };
 
 const Bomba3 = {
-    x: (Math.random() * 300) + 200,
+    x: (Math.random() * 300) +580,
     y: (Math.random() * 300) + 200,
     removida: false,
 };
 
 const Bomba4 = {
-    x: (Math.random() * 300) + 500,
+    x: (Math.random() * 300) + 670,
     y: (Math.random() * 300) + 200,
     removida: false,
 };
 
 const Bomba5 = {
-    x: (Math.random() * 300) + 500,
+    x: (Math.random() * 300) + 760,
     y: (Math.random() * 300) + 200,
     removida: false,
 };
 
 const Bomba6 = {
-    x: (Math.random() * 300) + 500,
-    y: (Math.random() * 300) + 200,
+    x: (Math.random() * 300) + 509,
+    y: (Math.random() * 300) + 430,
+    removida: false,
+};
+
+const Bomba7 = {
+    x: (Math.random() * 300) + 545,
+    y: (Math.random() * 300) + 340,
+    removida: false,
+};
+
+const Bomba8 = {
+    x: (Math.random() * 300) + 550,
+    y: (Math.random() * 300) + 320,
+    removida: false,
+};
+
+const Bomba9 = {
+    x: (Math.random() * 300) + 590,
+    y: (Math.random() * 300) + 300,
+    removida: false,
+};
+
+const Bomba10 = {
+    x: (Math.random() * 300) + 576,
+    y: (Math.random() * 300) + 400,
+    removida: false,
+};
+
+const Bomba11 = {
+    x: (Math.random() * 300) + 507,
+    y: (Math.random() * 300) + 360,
+    removida: false,
+};
+
+const Bomba12 = {
+    x: (Math.random() * 300) + 556,
+    y: (Math.random() * 300) + 300,
     removida: false,
 };
 
@@ -128,6 +194,12 @@ AtualizarPosicao(Bomba3.x, Bomba3.y)
 AtualizarPosicao(Bomba4.x, Bomba4.y)
 AtualizarPosicao(Bomba5.x, Bomba5.y)
 AtualizarPosicao(Bomba6.x, Bomba6.y)
+AtualizarPosicao(Bomba7.x, Bomba7.y)
+AtualizarPosicao(Bomba8.x, Bomba8.y)
+AtualizarPosicao(Bomba9.x, Bomba9.y)
+AtualizarPosicao(Bomba10.x, Bomba10.y)
+AtualizarPosicao(Bomba11.x, Bomba11.y)
+AtualizarPosicao(Bomba12.x, Bomba12.y)
 
 //Essa função é responsável por fazer os cálculos para identificar colisão com a bomba, se assim for verificado, as consequências são feitas.
 const verificarColisaoComBomba = (novoX, novoY, bomba) => {
@@ -136,8 +208,8 @@ const verificarColisaoComBomba = (novoX, novoY, bomba) => {
     }
 
     const distanciaBomba = Math.sqrt((novoX - bomba.x) ** 2 + (novoY - bomba.y) ** 2);
-    if (distanciaBomba < 20) {
-        {PosicaoJogador.x = 700, PosicaoJogador.y = 630};
+    if (distanciaBomba < 10) {
+        {PosicaoJogador.x = 737, PosicaoJogador.y = 710};
         AtualizarPosicao(PosicaoJogador.x, PosicaoJogador.y);
         bomba.removida = true;
         return true;
@@ -160,7 +232,7 @@ const mostrarBotaoReiniciar = () => {
 }
 // FUNÇÃO RESPONSAVEL POR VERIFICAR SE O JOGADOR PERDEU O JOGO POR COLIDIR COM 3 BOMBAS
 const verificarPerdaJogo = () => {
-    const bombasColididas = [Bomba1, Bomba2, Bomba3, Bomba4, Bomba5, Bomba6].filter(bomba => bomba.removida);
+    const bombasColididas = [Bomba1, Bomba2, Bomba3, Bomba4, Bomba5, Bomba6, Bomba7, Bomba8, Bomba9, Bomba10, Bomba11, Bomba12].filter(bomba => bomba.removida);
   
     if (bombasColididas.length >= 3 ) {
       alert("Você perdeu o jogo!");
@@ -170,9 +242,9 @@ mostrarBotaoReiniciar()
 
   // Função para reiniciar o jogo quando o jogador perder, seja pelo tempo esgotado ou por colidir com 3 bombas.
   const reiniciarJogo = () => {
-    PosicaoJogador.x = 700;
-    PosicaoJogador.y = 630;
-    Bandeira.x = 700;
+    PosicaoJogador.x = 737;
+    PosicaoJogador.y = 710;
+    Bandeira.x = 737;
     Bandeira.y = 40;
 
     Bomba1.removida = false;
@@ -181,24 +253,49 @@ mostrarBotaoReiniciar()
     Bomba4.removida = false;
     Bomba5.removida = false;
     Bomba6.removida = false;
+    Bomba7.removida = false;
+    Bomba8.removida = false;
+    Bomba9.removida = false;
+    Bomba10.removida = false;
+    Bomba11.removida = false;
+    Bomba12.removida = false;
 
-    Bomba1.x = (Math.random() * 300) + 200;
+    Bomba1.x = (Math.random() * 300) + 530;
     Bomba1.y = (Math.random() * 300) + 200;
 
-    Bomba2.x = (Math.random() * 300) + 200;
+    Bomba2.x = (Math.random() * 300) + 650;
     Bomba2.y = (Math.random() * 300) + 200;
 
-    Bomba3.x = (Math.random() * 300) + 200;
+    Bomba3.x = (Math.random() * 300) + 580;
     Bomba3.y = (Math.random() * 300) + 200;
 
-    Bomba4.x = (Math.random() * 300) + 500;
+    Bomba4.x = (Math.random() * 300) + 670;
     Bomba4.y = (Math.random() * 300) + 200;
 
-    Bomba5.x = (Math.random() * 300) + 500;
+    Bomba5.x = (Math.random() * 300) + 760;
     Bomba5.y = (Math.random() * 300) + 200;
 
-    Bomba6.x = (Math.random() * 300) + 500;
-    Bomba6.y = (Math.random() * 300) + 200;
+    Bomba6.x = (Math.random() * 300) + 509;
+    Bomba6.y = (Math.random() * 300) + 430;
+
+    Bomba7.x = (Math.random() * 300) + 545;
+    Bomba7.y = (Math.random() * 300) + 340;
+
+    Bomba8.x = (Math.random() * 300) + 550;
+    Bomba8.y = (Math.random() * 300) + 320;
+
+    Bomba9.x = (Math.random() * 300) + 590;
+    Bomba9.y = (Math.random() * 300) + 300;
+
+    Bomba10.x = (Math.random() * 300) + 500;
+    Bomba10.y = (Math.random() * 300) + 450;
+
+    Bomba11.x = (Math.random() * 300) + 570;
+    Bomba11.y = (Math.random() * 300) + 430;
+
+    Bomba12.x = (Math.random() * 300) + 580;
+    Bomba12.y = (Math.random() * 300) + 300;
+
 
     Bomba1.removida = false;
     Bomba2.removida = false;
@@ -206,6 +303,13 @@ mostrarBotaoReiniciar()
     Bomba4.removida = false;
     Bomba5.removida = false;
     Bomba6.removida = false;
+    Bomba7.removida = false;
+    Bomba8.removida = false;
+    Bomba9.removida = false;
+    Bomba10.removida = false;
+    Bomba11.removida = false;
+    Bomba12.removida = false;
+
 
     AtualizarPosicao(PosicaoJogador.x, PosicaoJogador.y);
     AtualizarPosicao(Bandeira.x, Bandeira.y);
@@ -215,6 +319,12 @@ mostrarBotaoReiniciar()
     AtualizarPosicao(Bomba4.x, Bomba4.y);
     AtualizarPosicao(Bomba5.x, Bomba5.y);
     AtualizarPosicao(Bomba6.x, Bomba6.y);
+    AtualizarPosicao(Bomba7.x, Bomba7.y);
+    AtualizarPosicao(Bomba8.x, Bomba8.y);
+    AtualizarPosicao(Bomba9.x, Bomba9.y);
+    AtualizarPosicao(Bomba10.x, Bomba10.y);
+    AtualizarPosicao(Bomba11.x, Bomba11.y);
+    AtualizarPosicao(Bomba12.x, Bomba12.y);
     iniciarCronometro();
     document.getElementById('reiniciarJogo').style.display = 'none';
 }
@@ -232,13 +342,16 @@ document.addEventListener('keydown', (evento) => {
         /* a seguir, a partir da tecla pressionada, varias condições são verificadas e de acordo como evento, a coordenada do jogador será adicionada
         ou subtraida em 10px. */
         if (tecla === 'ArrowRight' || tecla === 'd' || tecla == 'D') {
-            return { x: x + 10, y }
+            return { x: x + 40, y }
         }
         else if (tecla === 'ArrowLeft' || tecla === 'a' || tecla === 'A') {
-            return { x: x - 10, y }
+            return { x: x - 40, y }
         }
         else if (tecla === 'ArrowUp' || tecla === 'w' || tecla === 'W') {
-            return { x, y: y - 10 };
+            return { x, y: y - 40 };
+        }
+        else if (tecla === 'ArrowDown' || tecla === 's' || tecla === 'S') {
+            return { x, y: y + 40 };    
         } else {
             return { x, y }
         }
@@ -252,8 +365,12 @@ document.addEventListener('keydown', (evento) => {
 
     const distanciaBandeira = Math.sqrt((novoX - Bandeira.x) ** 2 + (novoY - Bandeira.y) ** 2);
         if (distanciaBandeira < 20) { alert('Você Venceu!');
+        // add o botão de reiniciar quando pega a bandeira 
+        mostrarBotaoReiniciar()
     }
-
+  
+    
+    
     //Nessa parte está contida as consequências da explosão da bomba, o alerta e a função que "explode" as bombas
     if (verificarColisaoComBomba(novoX, novoY, Bomba1)) {
         alert("Boom!");
@@ -279,12 +396,42 @@ document.addEventListener('keydown', (evento) => {
         alert("Boom!");
         removerBomba(bomba6);
     }
+    if (verificarColisaoComBomba(novoX, novoY, Bomba7)) {
+        alert("Boom!");
+        removerBomba(bomba7);
+
+    }
+    if (verificarColisaoComBomba(novoX, novoY, Bomba8)) {
+        alert("Boom!");
+        removerBomba(bomba8);
+
+    }
+    if (verificarColisaoComBomba(novoX, novoY, Bomba9)) {
+        alert("Boom!");
+        removerBomba(bomba9);
+
+    }
+    if (verificarColisaoComBomba(novoX, novoY, Bomba10)) {
+        alert("Boom!");
+        removerBomba(bomba10);
+
+    }
+    if (verificarColisaoComBomba(novoX, novoY, Bomba5)) {
+        alert("Boom!");
+        removerBomba(bomba11);
+
+    }
+    if (verificarColisaoComBomba(novoX, novoY, Bomba12)) {
+        alert("Boom!");
+        removerBomba(bomba12);
+
+    }
 })
 
 // (Lauren) Está parte é responsável por colocar o jogador na posição inicial toda vez que a página for atualizada
 //Responsável também por inciar o cronometro assim que a pagina for atualizada.
 window.addEventListener('load', function () {
-    jogador.style.left = '700px';
-    jogador.style.top = '630px';
+    jogador.style.left = '737px';
+    jogador.style.top = '710px';
     iniciarCronometro();
 });
