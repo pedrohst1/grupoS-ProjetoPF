@@ -24,6 +24,7 @@ body {
   flex-direction: row;
   background-color: #ffffff;
   border-radius: 10px;
+  background-image: url('');
 }
 
 

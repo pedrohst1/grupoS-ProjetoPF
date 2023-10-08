@@ -208,7 +208,7 @@ const verificarColisaoComBomba = (novoX, novoY, bomba) => {
     }
 
     const distanciaBomba = Math.sqrt((novoX - bomba.x) ** 2 + (novoY - bomba.y) ** 2);
-    if (distanciaBomba < 10) {
+    if (distanciaBomba < 20) {
         {PosicaoJogador.x = 737, PosicaoJogador.y = 710};
         AtualizarPosicao(PosicaoJogador.x, PosicaoJogador.y);
         bomba.removida = true;
