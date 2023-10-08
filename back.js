@@ -129,6 +129,7 @@ AtualizarPosicao(Bomba4.x, Bomba4.y)
 AtualizarPosicao(Bomba5.x, Bomba5.y)
 AtualizarPosicao(Bomba6.x, Bomba6.y)
 
+//Essa função é responsável por fazer os cálculos para identificar colisão com a bomba, se assim for verificado, as consequências são feitas.
 const verificarColisaoComBomba = (novoX, novoY, bomba) => {
     if (bomba.removida) {
         return false
@@ -136,12 +137,15 @@ const verificarColisaoComBomba = (novoX, novoY, bomba) => {
 
     const distanciaBomba = Math.sqrt((novoX - bomba.x) ** 2 + (novoY - bomba.y) ** 2);
     if (distanciaBomba < 20) {
+        {PosicaoJogador.x = 700, PosicaoJogador.y = 630};
+        AtualizarPosicao(PosicaoJogador.x, PosicaoJogador.y);
         bomba.removida = true;
         return true;
     }
     return false;
 }
 
+//Essa é a função responsável por "explodir" a bomba (removê-la do jogo após a colisão com a mesma ter sido identificada).
 const removerBomba = (bomba) => {
     if (bomba.parentNode) {
         bomba.parentNode.removeChild(bomba);
@@ -240,11 +244,7 @@ document.addEventListener('keydown', (evento) => {
         }
     };
 
-    /* a função a seguir é responsável por verificar a conddição da vitória do jogo. Se a distancia entre a coordenada da bandeira e do jogador
-    for menos que 20px, um alerta é emitido na tela de vitória. a primeira linha é responsavel por obter as novas coordenadas do jogador, 
-    a const distancia é responsavel por calcular a distancia euclidiana entre a bandeira e a bandeira e o jogador e uma condição é feita de
-    que caso a distancia seja menor que 20px,  um alerta de vitória será exibido. */
-
+    /* a função a seguir é responsável por verificar a conddição da vitória do jogo. Se a distancia entre a coordenada da bandeira e do jogador for menos que 20px, um alerta é emitido na tela de vitória. a primeira linha é responsavel por obter as novas coordenadas do jogador, a const distancia é responsavel por calcular a distancia euclidiana entre a bandeira e a bandeira e o jogador e uma condição é feita de que caso a distancia seja menor que 20px,  um alerta de vitória será exibido. */
     const { x: novoX, y: novoY } = novaPosicao(apertarTecla);
     PosicaoJogador.x = novoX
     PosicaoJogador.y = novoY
@@ -254,35 +254,30 @@ document.addEventListener('keydown', (evento) => {
         if (distanciaBandeira < 20) { alert('Você Venceu!');
     }
 
+    //Nessa parte está contida as consequências da explosão da bomba, o alerta e a função que "explode" as bombas
     if (verificarColisaoComBomba(novoX, novoY, Bomba1)) {
         alert("Boom!");
         removerBomba(bomba1);
-
     }
     if (verificarColisaoComBomba(novoX, novoY, Bomba2)) {
         alert("Boom!");
         removerBomba(bomba2);
-
     }
     if (verificarColisaoComBomba(novoX, novoY, Bomba3)) {
         alert("Boom!");
         removerBomba(bomba3);
-
     }
     if (verificarColisaoComBomba(novoX, novoY, Bomba4)) {
         alert("Boom!");
         removerBomba(bomba4);
-
     }
     if (verificarColisaoComBomba(novoX, novoY, Bomba5)) {
         alert("Boom!");
         removerBomba(bomba5);
-
     }
     if (verificarColisaoComBomba(novoX, novoY, Bomba6)) {
         alert("Boom!");
         removerBomba(bomba6);
-
     }
 })
 
@@ -290,6 +285,6 @@ document.addEventListener('keydown', (evento) => {
 //Responsável também por inciar o cronometro assim que a pagina for atualizada.
 window.addEventListener('load', function () {
     jogador.style.left = '700px';
-    jogador.style.top = '620px';
+    jogador.style.top = '630px';
     iniciarCronometro();
 });
