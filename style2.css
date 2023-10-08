@@ -1,4 +1,3 @@
-/* (Lauren)fiz uns pequenos ajustes no front para ficar dentro da id visual do jogo */
 * {
   margin: 0;
   padding: 0;
@@ -12,26 +11,24 @@ body {
   align-items: center;
   background-color: #397d4e;
   height: 100vh;
-  overflow-x: hidden;
-  overflow-y: hidden;
+  overflow: hidden;
 }
 
 .modos {
-  height: 90vh;
-  width: 90vw;
+  height: 90%;
+  width: 90%;
   display: flex;
   justify-content: baseline;
   align-items: baseline;
   flex-direction: row;
   background-color: #ffffff;
   border-radius: 10px;
-  /* box-shadow: 10px 10px 30px 10px #0000005e; */
 }
 
 .quit {
   background-color: #912f2f;
-  height: 100x;
-  width: 100px;
+  height: 10%;
+  width: 10%;
   font-size: 20px;
   font-weight: 400;
   border-radius: 7px;
@@ -39,80 +36,110 @@ body {
   cursor: pointer;
   text-decoration: none;
   color: #000;
-  padding: 0, 1px 0, 1px;
-  margin: 0px 30px 0px 10px;
+  margin: 1%;
   transition: all 0.5s;
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
 }
 
-/*(Lauren)adicionei o hover para o botão "back" também ter seu estilo alterado quando o cursor passar por cima*/
 .quit:hover {
   box-shadow: 5px 0px 70px 10px #00000082;
   background-color: #397d4e;
   color: rgba(0, 0, 0, 0.889);
   transition: 130ms linear;
-  -moz-transform: scale(1.5);
-  -o-transform: scale(1.5);
-  -webkit-transform: scale(1.5);
-  transform: scale(1.5);
+  transform: scale(1.1);
 }
 
 #personagem {
   position: absolute;
-  width: 20px;
-  height: 40px;
+  width: 2%;
+  height: 4%;
   background-color: red;
   background-image: url("imagens/personagem.png");
+  left: 10%;
+  top: 60%;
 }
 
 #bandeira {
   position: absolute;
-  width: 40px;
-  height: 40px;
+  width: 4%;
+  height: 4%;
   background-color: blue;
   background-image: url("imagens/bandeira-win.png");
-  display: block;
+  left: 10%;
+  top: 5%;
 }
 
-/*(Lauren) */
 #bomba1 {
   position: absolute;
-  width: 20px;
-  height: 20px;
+  width: 2%;
+  height: 2%;
   background-color: rgb(0, 255, 30);
+  left: 25%;
+  top: 30%;
 }
 
 #bomba2 {
   position: absolute;
-  width: 20px;
-  height: 20px;
+  width: 2%;
+  height: 2%;
   background-color: rgb(196, 183, 13);
+  left: 50%;
+  top: 40%;
 }
 
 #bomba3 {
   position: absolute;
-  width: 20px;
-  height: 20px;
+  width: 2%;
+  height: 2%;
   background-color: rgb(221, 45, 191);
+  left: 75%;
+  top: 25%;
 }
 
 #bomba4 {
   position: absolute;
-  width: 20px;
-  height: 20px;
+  width: 2%;
+  height: 2%;
   background-color: rgb(86, 17, 91);
+  left: 15%;
+  top: 80%;
 }
 
 #bomba5 {
   position: absolute;
-  width: 20px;
-  height: 20px;
+  width: 2%;
+  height: 2%;
   background-color: rgb(195, 92, 92);
+  left: 70%;
+  top: 70%;
 }
 
 #bomba6 {
   position: absolute;
-  width: 20px;
-  height: 20px;
+  width: 2%;
+  height: 2%;
   background-color: rgb(0, 0, 0);
+  left: 80%;
+  top: 40%;
+}
+
+#cronometro {
+  background-color: #912f2f;
+  height: 5%;
+  width: 5%;
+  font-size: 30px;
+  font-weight: 400;
+  border-radius: 7px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  color: #000;
+  left: 10%;
+  top: 10%;
+  transition: all 0.5s;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+#reiniciarJogo {
+  display: block;
 }
