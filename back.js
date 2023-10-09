@@ -79,7 +79,7 @@ const AtualizarPosicao = (x, y) => {
 
 //Função responsável por mostrar na tela o tempo que falta para o encerramento da partida de 10s até 0s.
 const iniciarCronometro = () => {
-    const tempoTotal = 60; 
+    const tempoTotal = 10;
     const inicio = Date.now();
 
     const atualizarCronometro = () => {
@@ -103,12 +103,12 @@ const iniciarCronometro = () => {
 coordenadas apresentadas em x e y */
 const PosicaoJogador = {
     x: 737,
-    y: 710,
+    y: 600,
 };
 
 const Bandeira = {
     x: 737,
-    y: 40,
+    y: 60,
 };
 /*(Lauren) As funções abaixo são responsáveis pela aleatoriedade do surgimento das bombas, assim, toda vez que a página for atualizada
 as bombas estarão em uma posição diferente da que estavam anteriormente*/
@@ -126,7 +126,7 @@ const Bomba2 = {
 };
 
 const Bomba3 = {
-    x: (Math.random() * 300) +580,
+    x: (Math.random() * 300) + 580,
     y: (Math.random() * 300) + 200,
     removida: false,
 };
@@ -145,7 +145,7 @@ const Bomba5 = {
 
 const Bomba6 = {
     x: (Math.random() * 300) + 509,
-    y: (Math.random() * 300) + 430,
+    y: (Math.random() * 300) + 400,
     removida: false,
 };
 
@@ -209,7 +209,7 @@ const verificarColisaoComBomba = (novoX, novoY, bomba) => {
 
     const distanciaBomba = Math.sqrt((novoX - bomba.x) ** 2 + (novoY - bomba.y) ** 2);
     if (distanciaBomba < 20) {
-        {PosicaoJogador.x = 737, PosicaoJogador.y = 710};
+        { PosicaoJogador.x = 737, PosicaoJogador.y = 600 };
         AtualizarPosicao(PosicaoJogador.x, PosicaoJogador.y);
         bomba.removida = true;
         return true;
@@ -221,7 +221,7 @@ const verificarColisaoComBomba = (novoX, novoY, bomba) => {
 const removerBomba = (bomba) => {
     if (bomba.parentNode) {
         bomba.parentNode.removeChild(bomba);
-        verificarPerdaJogo(); 
+        verificarPerdaJogo();
     }
 };
 // FUNÇÃO RESPONSAVEL POR FAZER O BOTAO DE REINICIAR SER EXIBIDO APOS O JOGADOR PERDER A PARTIDA
@@ -233,19 +233,17 @@ const mostrarBotaoReiniciar = () => {
 // FUNÇÃO RESPONSAVEL POR VERIFICAR SE O JOGADOR PERDEU O JOGO POR COLIDIR COM 3 BOMBAS
 const verificarPerdaJogo = () => {
     const bombasColididas = [Bomba1, Bomba2, Bomba3, Bomba4, Bomba5, Bomba6, Bomba7, Bomba8, Bomba9, Bomba10, Bomba11, Bomba12].filter(bomba => bomba.removida);
-  
-    if (bombasColididas.length >= 3 ) {
-      alert("Você perdeu o jogo!");
-mostrarBotaoReiniciar()
-    }
-  }
 
-  // Função para reiniciar o jogo quando o jogador perder, seja pelo tempo esgotado ou por colidir com 3 bombas.
-  const reiniciarJogo = () => {
-    PosicaoJogador.x = 737;
-    PosicaoJogador.y = 710;
+    if (bombasColididas.length >= 3) {
+        alert("Você perdeu o jogo!");
+        mostrarBotaoReiniciar()
+    }
+}
+
+// Função para reiniciar o jogo quando o jogador perder, seja pelo tempo esgotado ou por colidir com 3 bombas.
+const reiniciarJogo = () => {
     Bandeira.x = 737;
-    Bandeira.y = 40;
+    Bandeira.y = 60;
 
     Bomba1.removida = false;
     Bomba2.removida = false;
@@ -310,8 +308,6 @@ mostrarBotaoReiniciar()
     Bomba11.removida = false;
     Bomba12.removida = false;
 
-
-    AtualizarPosicao(PosicaoJogador.x, PosicaoJogador.y);
     AtualizarPosicao(Bandeira.x, Bandeira.y);
     AtualizarPosicao(Bomba1.x, Bomba1.y);
     AtualizarPosicao(Bomba2.x, Bomba2.y);
@@ -326,6 +322,8 @@ mostrarBotaoReiniciar()
     AtualizarPosicao(Bomba11.x, Bomba11.y);
     AtualizarPosicao(Bomba12.x, Bomba12.y);
     iniciarCronometro();
+    jogador.style.left = '740px';
+    jogador.style.top = '600px';
     document.getElementById('reiniciarJogo').style.display = 'none';
 }
 
@@ -351,26 +349,45 @@ document.addEventListener('keydown', (evento) => {
             return { x, y: y - 40 };
         }
         else if (tecla === 'ArrowDown' || tecla === 's' || tecla === 'S') {
-            return { x, y: y + 40 };    
+            return { x, y: y + 40 };
         } else {
             return { x, y }
         }
     };
 
-    /* a função a seguir é responsável por verificar a conddição da vitória do jogo. Se a distancia entre a coordenada da bandeira e do jogador for menos que 20px, um alerta é emitido na tela de vitória. a primeira linha é responsavel por obter as novas coordenadas do jogador, a const distancia é responsavel por calcular a distancia euclidiana entre a bandeira e a bandeira e o jogador e uma condição é feita de que caso a distancia seja menor que 20px,  um alerta de vitória será exibido. */
     const { x: novoX, y: novoY } = novaPosicao(apertarTecla);
     PosicaoJogador.x = novoX
     PosicaoJogador.y = novoY
-    AtualizarPosicao(novoX, novoY)
+    
+ /*(Lauren) está parte do código é responsável por não deixar o jogador ultrapassar as "paredes do jogo". Nela foi definida os limites max e min
+    do campo do jogo. O jogador só poderá se mover se a posição(x,y) dele estiver dentro dos limites, por isso foi definido um if, assim, quando 
+    a posição atende a condição, a função "AtualizarPosicao" é chamada e o jogador se move */
+    const limiteXMin = 300;
+    const limiteXMax = 1140;
+    const limiteYMin = 58;
+    const limiteYMax = 608;
 
+    if (
+        novoX >= limiteXMin &&
+        novoX <= limiteXMax &&
+        novoY >= limiteYMin &&
+        novoY <= limiteYMax
+    ) { AtualizarPosicao(novoX, novoY) }
+
+
+/* a função a seguir é responsável por verificar a conddição da vitória do jogo. Se a distancia entre a coordenada da bandeira e do jogador for 
+menos que 30px, um alerta é emitido na tela de vitória. a primeira linha é responsavel por obter as novas coordenadas do jogador, a const distancia
+ é responsavel por calcular a distancia euclidiana entre a bandeira e a bandeira e o jogador e uma condição é feita de que caso a distancia seja 
+ menor que 30px,  um alerta de vitória será exibido. */
     const distanciaBandeira = Math.sqrt((novoX - Bandeira.x) ** 2 + (novoY - Bandeira.y) ** 2);
-        if (distanciaBandeira < 20) { alert('Você Venceu!');
+    if (distanciaBandeira < 30) {
+        alert('Você Venceu!');
         // add o botão de reiniciar quando pega a bandeira 
         mostrarBotaoReiniciar()
     }
-  
-    
-    
+
+
+
     //Nessa parte está contida as consequências da explosão da bomba, o alerta e a função que "explode" as bombas
     if (verificarColisaoComBomba(novoX, novoY, Bomba1)) {
         alert("Boom!");
@@ -428,10 +445,11 @@ document.addEventListener('keydown', (evento) => {
     }
 })
 
+
 // (Lauren) Está parte é responsável por colocar o jogador na posição inicial toda vez que a página for atualizada
 //Responsável também por inciar o cronometro assim que a pagina for atualizada.
 window.addEventListener('load', function () {
-    jogador.style.left = '737px';
-    jogador.style.top = '710px';
+    jogador.style.left = '740px';
+    jogador.style.top = '600px';
     iniciarCronometro();
 });

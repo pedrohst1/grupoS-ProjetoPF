@@ -63,7 +63,7 @@ body {
 .botao:hover {
   box-shadow: 0px 0px 70px 10px #00000082;
   background-color: #0000004f;
-  color: rgb(141, 42, 42);
+  color: #FF3131;
   transition: 130ms linear;
   -moz-transform: scale(1.5);
   -o-transform: scale(1.5);
