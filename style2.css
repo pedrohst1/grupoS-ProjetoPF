@@ -1,225 +1,223 @@
   /*(Lauren) fiz o design do campo de acordo com a id visual do jogo e alterei o background-image do .modos, do personagem e da bandeira)*/
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: monospace;
-}
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: monospace;
+  }
 
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #397d4e;
-  height: 100vh;
-  overflow: hidden;
-}
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #397d4e;
+    height: 100vh;
+    overflow: hidden;
+  }
 
-/* modifiquei o tamanho  */
-.modos {
-  height: 84vh;
-  width: 58vw;
-  display: flex;
-  justify-content: baseline;
-  align-items: baseline;
-  flex-direction: row;
-  background-color: #ffffff;
-  border-radius: 10px;
-  background-image: url("imagens/campo.MinedFlag.png");
+  /* modifiquei o tamanho  */
+  .modos {
+    height: 84vh;
+    width: 58vw;
+    display: flex;
+    justify-content: baseline;
+    align-items: baseline;
+    flex-direction: row;
+    background-color: #ffffff;
+    border-radius: 10px;
+    background-image: url("imagens/campo.MinedFlag.png");
 
-}
-
-
-#personagem {
-  position: absolute;
-  width: 50px;
-  height: 50px;
-  background-image: url("imagens/personagem.png");
-  left: 10%;
-  top: 60%;
-}
-
-#bandeira {
-  position: absolute;
-  width: 50px;
-  height: 50px;
-  background-image: url("imagens/bandeira-win.png");
-  left: 0%;
-  top: 5%;
-}
-
-#bomba1 {
-  position: absolute;
-  width: 2%;
-  height: 3.5%;
-  /*background-color: rgb(0, 255, 30);*/
-  left: 25%;
-  top: 30%;
-}
-
-#bomba2 {
-  position: absolute;
-  width: 2%;
-  height: 3.5%;
-  /*background-color: rgb(0, 255, 30);*/
-  left: 50%;
-  top: 40%;
-}
-
-#bomba3 {
-  position: absolute;
-  width: 2%;
-  height: 3.5%;
-  /*background-color: rgb(0, 255, 30);*/
-  left: 75%;
-  top: 25%;
-}
-
-#bomba4 {
-  position: absolute;
-  width: 2%;
-  height: 3.5%;
- /*background-color: rgb(0, 255, 30);*/ 
-  left: 15%;
-  top: 80%;
-}
-
-#bomba5 {
-  position: absolute;
-  width: 2%;
-  height: 3.5%;
-  /*background-color: rgb(0, 255, 30);*/
-  left: 70%;
-  top: 70%;
-}
-
-#bomba6 {
-  position: absolute;
-  width: 2%;
-  height: 3.5%;
-  /*background-color: rgb(0, 255, 30);*/
-  left: 80%;
-  top: 40%;
-}
-
-/* add o restante das bombas */
-#bomba7 {
-  position: absolute;
-  width: 2%;
-  height: 3.5%;
-  /*background-color: rgb(0, 255, 30);*/
-  left: 25%;
-  top: 30%;
-}
-
-#bomba8 {
-  position: absolute;
-  width: 2%;
-  height: 3.5%;
-  /*background-color: rgb(0, 255, 30);*/ 
-  left: 50%;
-  top: 40%;
-}
-
-#bomba9 {
-  position: absolute;
-  width: 2%;
-  height: 3.5%;
-  /*background-color: rgb(0, 255, 30);*/
-  left: 75%;
-  top: 25%;
-}
-
-#bomba10 {
-  position: absolute;
-  width: 2%;
-  height: 3.5%;
-  /*background-color: rgb(0, 255, 30);*/ 
-  left: 15%;
-  top: 80%;
-}
-
-#bomba11 {
-  position: absolute;
-  width: 2%;
-  height: 3.5%;
-  /*background-color: rgb(0, 255, 30);*/
-  left: 70%;
-  top: 70%;
-}
-
-#bomba12 {
-  position: absolute;
-  width: 2%;
-  height: 3.5%;
-  /*background-color: rgb(0, 255, 30);*/
-  left: 80%;
-  top: 40%;
-}
-
-/* personalizei o cronometro e o botão de reiniciarr */
-#cronometro {
-  background-color: #FF3131;
-  height: 5%;
-  width: 20%;
-  font-size: 30px;
-  font-weight: 400;
-  border-radius: 7px;
-  border: none;
-  cursor: pointer;
-  text-decoration: none;
-  color: #000;
-  left: 10%;
-  top: 10%;
-  transition: all 0.5s;
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-}
-
-#reiniciarJogo {
-  height: 50px;
-  width: 50;
-  font-size: 30px;
-  font-weight: 500;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  text-decoration: none;
-  background-color: #397d4e;
-  padding: 10px 10px;
-  margin: 200px 0px 0px 375px;
-  transition: all 0.5s;
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-}
-
-#reiniciarJogo:hover {
-  box-shadow: 0px 0px 70px 10px #00000082;
-  background-color: #000000;
-  color: #397d4e;
-  transition: 130ms linear;
-  transform: scale(1.1);
-}
+  }
 
 
-#reiniciarJogo {
-  display: block;
-}
+  #personagem {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-image: url("imagens/personagem.png");
+    left: 10%;
+    top: 60%;
+  }
 
-#reiniciarjogo:active {
-  background-color: rgb(0, 0, 0);
-}
+  #bandeira {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-image: url("imagens/bandeira-win.png");
+    left: 0%;
+    top: 5%;
+  }
 
-#CaixadeMensagem {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  padding: 20px;
-  background-color: #fff;
-  border: 2px solid #000;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  z-index: 999;
-  display: none;
-}
+  #bomba1 {
+    position: absolute;
+    width: 2%;
+    height: 3.5%;
+    /*background-color: rgb(0, 255, 30);*/
+    left: 25%;
+    top: 30%;
+  }
+
+  #bomba2 {
+    position: absolute;
+    width: 2%;
+    height: 3.5%;
+    /*background-color: rgb(0, 255, 30);*/
+    left: 50%;
+    top: 40%;
+  }
+
+  #bomba3 {
+    position: absolute;
+    width: 2%;
+    height: 3.5%;
+    /*background-color: rgb(0, 255, 30);*/
+    left: 75%;
+    top: 25%;
+  }
+
+  #bomba4 {
+    position: absolute;
+    width: 2%;
+    height: 3.5%;
+    /*background-color: rgb(0, 255, 30);*/
+    left: 15%;
+    top: 80%;
+  }
+
+  #bomba5 {
+    position: absolute;
+    width: 2%;
+    height: 3.5%;
+    /*background-color: rgb(0, 255, 30);*/
+    left: 70%;
+    top: 70%;
+  }
+
+  #bomba6 {
+    position: absolute;
+    width: 2%;
+    height: 3.5%;
+    /*background-color: rgb(0, 255, 30);*/
+    left: 80%;
+    top: 40%;
+  }
+
+  /* add o restante das bombas */
+  #bomba7 {
+    position: absolute;
+    width: 2%;
+    height: 3.5%;
+    /*background-color: rgb(0, 255, 30);*/
+    left: 25%;
+    top: 30%;
+  }
+
+  #bomba8 {
+    position: absolute;
+    width: 2%;
+    height: 3.5%;
+    /*background-color: rgb(0, 255, 30);*/
+    left: 50%;
+    top: 40%;
+  }
+
+  #bomba9 {
+    position: absolute;
+    width: 2%;
+    height: 3.5%;
+    /*background-color: rgb(0, 255, 30);*/
+    left: 75%;
+    top: 25%;
+  }
+
+  #bomba10 {
+    position: absolute;
+    width: 2%;
+    height: 3.5%;
+    /*background-color: rgb(0, 255, 30);*/
+    left: 15%;
+    top: 80%;
+  }
+
+  #bomba11 {
+    position: absolute;
+    width: 2%;
+    height: 3.5%;
+    /*background-color: rgb(0, 255, 30);*/
+    left: 70%;
+    top: 70%;
+  }
+
+  #bomba12 {
+    position: absolute;
+    width: 2%;
+    height: 3.5%;
+    /*background-color: rgb(0, 255, 30);*/
+    left: 80%;
+    top: 40%;
+  }
+
+  /* personalizei o cronometro e o botão de reiniciarr */
+  #cronometro {
+    background-color: #FF3131;
+    height: 5%;
+    width: 20%;
+    font-size: 30px;
+    font-weight: 400;
+    border-radius: 7px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    color: #000;
+    left: 10%;
+    top: 10%;
+    transition: all 0.5s;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  }
+
+  #reiniciarJogo {
+    height: 50px;
+    width: 50;
+    font-size: 30px;
+    font-weight: 500;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    background-color: #397d4e;
+    padding: 10px 10px;
+    margin: 200px 0px 0px 375px;
+    transition: all 0.5s;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  }
+
+  #reiniciarJogo:hover {
+    box-shadow: 0px 0px 70px 10px #00000082;
+    background-color: #000000;
+    color: #397d4e;
+    transition: 130ms linear;
+    transform: scale(1.1);
+  }
 
 
+  #reiniciarJogo {
+    display: block;
+  }
+
+  #reiniciarjogo:active {
+    background-color: rgb(0, 0, 0);
+  }
+
+  #CaixadeMensagem {
+    position: fixed;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: #FF3131;
+    border: 2px solid #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    display: none;
+  }
