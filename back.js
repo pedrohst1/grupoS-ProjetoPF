@@ -77,9 +77,18 @@ const AtualizarPosicao = (x, y) => {
 };
 
 
-//Função responsável por mostrar na tela o tempo que falta para o encerramento da partida de 10s até 0s.
+//Função responsável por mostrar na tela o tempo que falta para o encerramento da partida de 20s até 0s. O encerramento ocasiana na perda.
+let jogoEmAndamento = false
+let IntervalodoCronometro = null
+
 const iniciarCronometro = () => {
-    const tempoTotal = 10;
+    if (jogoEmAndamento) {
+         return;
+    }
+    if (IntervalodoCronometro) {
+        clearInterval(IntervalodoCronometro);
+    }
+    const tempoTotal = 20;
     const inicio = Date.now();
 
     const atualizarCronometro = () => {
@@ -97,7 +106,7 @@ const iniciarCronometro = () => {
 
     const cronometro = document.getElementById('cronometro');
     atualizarCronometro();
-    const IntervalodoCronometro = setInterval(atualizarCronometro, 100);
+    IntervalodoCronometro = setInterval(atualizarCronometro, 100); // Modificado para usar a variável global
 };
 /* as funções abaixo são resposáveis por determinar a posição inicial da bandeira e do jogador no inicio do jogo a partir das 
 coordenadas apresentadas em x e y */
@@ -185,7 +194,7 @@ const Bomba12 = {
     removida: false,
 };
 
-//Essas são responsaveis por atualizar e posicionar jogador e bandeira no inicio do jogo.
+//Essas são responsaveis por atualizar e posicionar jogador, bombas e bandeira no inicio do jogo.
 AtualizarPosicao(PosicaoJogador.x, PosicaoJogador.y)
 AtualizarPosicao(Bandeira.x, Bandeira.y)
 AtualizarPosicao(Bomba1.x, Bomba1.y)
@@ -224,7 +233,7 @@ const removerBomba = (bomba) => {
         verificarPerdaJogo();
     }
 };
-// FUNÇÃO RESPONSAVEL POR FAZER O BOTAO DE REINICIAR SER EXIBIDO APOS O JOGADOR PERDER A PARTIDA
+// FUNÇÃO RESPONSAVEL POR FAZER O BOTAO DE REINICIAR SER EXIBIDO APOS O JOGADOR PERDER A PARTIDA, PERMITINDO QUE O JOGADOR REINICIE O JOGO
 const mostrarBotaoReiniciar = () => {
     const reiniciarJogoButton = document.getElementById('reiniciarJogo');
     reiniciarJogoButton.style.display = 'block';
@@ -237,11 +246,15 @@ const verificarPerdaJogo = () => {
     if (bombasColididas.length >= 3) {
         alert("Você perdeu o jogo!");
         mostrarBotaoReiniciar()
+        clearInterval(IntervalodoCronometro)
     }
 }
 
-// Função para reiniciar o jogo quando o jogador perder, seja pelo tempo esgotado ou por colidir com 3 bombas.
+/* Função para reiniciar o jogo quando o jogador perder, seja pelo tempo esgotado ou por colidir com 3 bombas
+ela faz com que o estado incial do jogo retorne, a posição do jogador, das bombas e o cronometro. */
 const reiniciarJogo = () => {
+    PosicaoJogador.x = 737
+    PosicaoJogador.y = 600
     Bandeira.x = 737;
     Bandeira.y = 60;
 
@@ -324,6 +337,7 @@ const reiniciarJogo = () => {
     iniciarCronometro();
     jogador.style.left = '740px';
     jogador.style.top = '600px';
+    if (!jogoEmAndamento) {iniciarCronometro()}
     document.getElementById('reiniciarJogo').style.display = 'none';
 }
 
@@ -382,8 +396,9 @@ menos que 30px, um alerta é emitido na tela de vitória. a primeira linha é re
     const distanciaBandeira = Math.sqrt((novoX - Bandeira.x) ** 2 + (novoY - Bandeira.y) ** 2);
     if (distanciaBandeira < 30) {
         alert('Você Venceu!');
-        // add o botão de reiniciar quando pega a bandeira 
         mostrarBotaoReiniciar()
+        clearInterval(IntervalodoCronometro)
+
     }
 
 
